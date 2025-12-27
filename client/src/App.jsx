@@ -1,15 +1,13 @@
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
-import './App.css'
-import Home from './pages/Home';
-import Login from './pages/Login';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 import SignUp from "./pages/Signup";
 import SellerDashboard from "./pages/SellerDashboard";
 import BuyerDashboard from "./pages/BuyerDashboard";
-import Navbar from './components/Navbar';
+import Navbar from "./components/Navbar";
 
 function App() {
-  
-
   return (
     <>
       <BrowserRouter>
@@ -26,4 +24,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
