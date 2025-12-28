@@ -6,6 +6,7 @@ import SignUp from "./pages/Signup";
 import SellerDashboard from "./pages/SellerDashboard";
 import BuyerDashboard from "./pages/BuyerDashboard";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/seller" element={<SellerDashboard />} />
           <Route path="/buyer" element={<BuyerDashboard />} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </>
   );
