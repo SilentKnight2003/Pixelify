@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import {connectToDatabase} from "./Db.js"
 import router from "./routes/authRoutes.js";
 import {readdirSync} from "fs"
+import cors from "cors"
 
 
 dotenv.config();
@@ -11,6 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 3000
 
 connectToDatabase();
+app.use(cors())
 app.use(express.json());
 app.get("/",(req,res)=> {
 res.send("Hello")

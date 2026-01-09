@@ -42,7 +42,7 @@ export const signup = async(req,res) => {
        try{
         let user = await  User.findOne({username});
         if(user){
-          return res.status(400).json({message:"Username alreday exist.."})
+          return res.status(400).json({success: false, message:"Username alreday exist.."})
         }
         const securePassword = await bcrypt.hash(password,10)
         const newUser = new User({
@@ -53,11 +53,11 @@ export const signup = async(req,res) => {
         })
         await newUser.save()
         return res.status(201).json({
-          data:newUser,
+          success: true,
           message:"Account created successfully..."
         })
        }catch(err){
-        return res.status(500).json({ message:err.message})
+        return res.status(500).json({ success: false, message:err.message})
        }
 }
 
