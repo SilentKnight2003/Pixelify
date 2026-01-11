@@ -8,15 +8,11 @@ import cors from "cors"
 
 dotenv.config();
 const app = express();
-
 const PORT = process.env.PORT || 3000
 
 connectToDatabase();
-app.use(cors())
+app.use(cors({origin:"http://localhost:5173"}))
 app.use(express.json());
-app.get("/",(req,res)=> {
-res.send("Hello")
-})
 
 // app.use("/api",router)
 

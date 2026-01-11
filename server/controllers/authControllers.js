@@ -5,13 +5,14 @@ import { generateAccessToken } from "../helpers/accessToken.js";
 import { generateRefreshToken } from "../helpers/refreshToken.js";
 export const login = async(req,res) => {
   const {email,password} = req.body;
+ 
   try{
     let user = await User.findOne({email});
     if(!user){
-      return res.status(400).json({message:"Please sign In."})
+      return res.status(400).json({success:false,message:"Please sign In."})
     }
     const comparePassword = await bcrypt.compare(password,user.password)
-    if(!comparePassword) return res.status(400).json({message:"Invalid credentials."});
+    if(!comparePassword) return res.status(400).json({success:false, message:"Invalid credentials."});
     
     const data = {
       id:user._id,
@@ -24,6 +25,7 @@ export const login = async(req,res) => {
    
 
     return res.status(200).json({
+      success:true,
       message:"Login successfull",
       accessToken,
       RefreshToken,

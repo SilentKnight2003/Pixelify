@@ -24,8 +24,8 @@ const Signup = () => {
           setEmail("");
           setPassword("");
           setAccountType("buyer")
-          toast.success(data.message)
           navigate("/")
+          toast.success(data.message)
         }
       }catch(Err) {
         toast.error(Err.response?.data?.message || "Signup failed")
