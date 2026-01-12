@@ -21,14 +21,14 @@ export const login = async(req,res) => {
     }
  
     const accessToken = generateAccessToken(data)
-    const RefreshToken = generateRefreshToken(data)
+    const refreshToken = generateRefreshToken(data)
    
 
     return res.status(200).json({
       success:true,
       message:"Login successfull",
       accessToken,
-      RefreshToken,
+      refreshToken,
       role:user.accountType,
       author:user.username
     })

@@ -2,11 +2,15 @@ import { useState, } from 'react'
 import {Link,useNavigate} from 'react-router-dom'
 import axios from "axios";
 import toast from "react-hot-toast"
+import { login } from '../../store/slices/authSlice';
+import {useDispatch} from "react-redux"
 
 const Login = () => {
   const navigate = useNavigate()
   const [email,setEmail] = useState("")
   const [password,setPassword] = useState("")
+
+  const dispatch = useDispatch()
   const handleLogin = async(e) => {
         e.preventDefault();
         try{
@@ -18,8 +22,9 @@ const Login = () => {
           if(data.success){
             setEmail("")
             setPassword("")
-            navigate("/")
             toast.success(data.message)
+            dispatch(login(data))
+            navigate(`/`)
           }
         }catch(Err){
             toast.error(Err.response?.data?.message || "Login Failed")
