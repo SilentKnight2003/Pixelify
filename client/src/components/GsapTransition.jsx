@@ -21,8 +21,8 @@ const GsapTransition = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login/>} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/seller" element={<SellerDashboard />} />
-          <Route path="/buyer" element={<BuyerDashboard />} />
+          <Route path="/seller/profile" element={<SellerDashboard />} />
+          <Route path="/buyer/profile" element={<BuyerDashboard />} />
         </Routes>
     </div>
   )

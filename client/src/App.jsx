@@ -14,7 +14,7 @@ function App() {
         <Navbar />
         <Toaster/>
         <GsapTransition/>
-        <Footer/>
+        {/* <Footer/> */}
       </BrowserRouter>
     </Provider>
       
